@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for looking at inbox-to-brain. It is a small router and validator for agent notes. Small, focused fixes are the most useful.
+This repo is a small router and validator for agent notes. Small, focused fixes are welcome.
 
 ## Before you start
 
