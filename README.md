@@ -2,7 +2,7 @@
 
 **Drop notes in an inbox. Your agent files them where they belong and flags the junk.**
 
-![A messy inbox, a dry run of the router, the apply step, and the sorted tree](docs/demo.gif)
+![A messy inbox, the router dry run, --apply, and the sorted result](docs/demo.gif)
 
 [![tests](https://img.shields.io/badge/tests-30%20passing-brightgreen)](tests)
 [![python](https://img.shields.io/badge/python-3.9%2B-blue)](#requirements)
@@ -98,7 +98,7 @@ And the validator report:
 /plugin install inbox-to-brain --marketplace nickspiz/inbox-to-brain
 ```
 
-That gives you `/inbox-to-brain:inbox-route` and `/inbox-to-brain:validate-inbox`, with the scripts bundled. You still need an `inbox-to-brain.toml` in your vault root (see below).
+This adds `/inbox-to-brain:inbox-route` and `/inbox-to-brain:validate-inbox`, and the scripts come with it. You still need an `inbox-to-brain.toml` in your vault root (see below).
 
 ## Use it in your own vault
 
