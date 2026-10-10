@@ -2,6 +2,8 @@
 
 **Drop notes in an inbox. Your agent files them where they belong and flags the junk.**
 
+![A messy inbox, a dry run of the router, the apply step, and the sorted tree](docs/demo.gif)
+
 [![tests](https://img.shields.io/badge/tests-30%20passing-brightgreen)](tests)
 [![python](https://img.shields.io/badge/python-3.9%2B-blue)](#requirements)
 [![dependencies](https://img.shields.io/badge/dependencies-none-lightgrey)](#requirements)
@@ -90,6 +92,14 @@ And the validator report:
 | [[2026-10-04-0900-quick-thought]] | no-frontmatter | the note starts without a --- block |
 ```
 
+## Install as a Claude Code plugin
+
+```text
+/plugin install inbox-to-brain --marketplace nickspiz/inbox-to-brain
+```
+
+That gives you `/inbox-to-brain:inbox-route` and `/inbox-to-brain:validate-inbox`, with the scripts bundled. You still need an `inbox-to-brain.toml` in your vault root (see below).
+
 ## Use it in your own vault
 
 1. Copy `router.py`, `validator.py` and `notes.py` into your vault (or anywhere, and pass `--vault`).
@@ -170,3 +180,5 @@ It can, but the shipped commands do a dry run first and ask before moving anythi
 ## License
 
 MIT
+
+If this helped, a star helps others find it.

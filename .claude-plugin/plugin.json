@@ -1,0 +1,10 @@
+{
+  "name": "inbox-to-brain",
+  "version": "0.1.0",
+  "description": "Slash commands that route inbox notes into project and knowledge folders by their frontmatter, and flag junk notes. Dry run first, nothing moves without a yes.",
+  "author": { "name": "Nikita Spitsyn", "url": "https://github.com/nickspiz" },
+  "homepage": "https://github.com/nickspiz/inbox-to-brain",
+  "repository": "https://github.com/nickspiz/inbox-to-brain",
+  "license": "MIT",
+  "keywords": ["notes", "obsidian", "knowledge-base", "commands"]
+}

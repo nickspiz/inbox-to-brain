@@ -1,0 +1,12 @@
+{
+  "name": "inbox-to-brain",
+  "description": "Inbox routing for agent notes",
+  "owner": { "name": "Nikita Spitsyn", "url": "https://github.com/nickspiz" },
+  "plugins": [
+    {
+      "name": "inbox-to-brain",
+      "source": "./",
+      "description": "/inbox-to-brain:inbox-route and /inbox-to-brain:validate-inbox: file notes by frontmatter and flag the junk."
+    }
+  ]
+}
