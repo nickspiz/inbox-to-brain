@@ -1,0 +1,17 @@
+# Projects the router is allowed to file notes under.
+# A note with `project: example-app` (or a `project/example-app` tag) goes to
+# Projects/example-app/. Add one line per project.
+projects = ["example-app"]
+
+# Optional: other names that mean the same project.
+[aliases]
+app = "example-app"
+
+# Notes shorter than this (characters after the frontmatter) are flagged.
+min_chars = 200
+
+# Folder names, if you do not like these.
+[folders]
+inbox = "00_Inbox"
+projects = "Projects"
+knowledge = "Knowledge"
