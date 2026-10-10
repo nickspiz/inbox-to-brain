@@ -177,6 +177,10 @@ No. Any note with `type:` and either `project:` or a `project/<slug>` tag will r
 **Can the agent run the router by itself?**
 It can, but the shipped commands do a dry run first and ask before moving anything. Keep that order unless you trust your config.
 
+## Questions and ideas
+
+Have a question or an idea? Start a [discussion](https://github.com/nickspiz/inbox-to-brain/discussions). For bugs, open an [issue](https://github.com/nickspiz/inbox-to-brain/issues/new/choose). See [CONTRIBUTING.md](CONTRIBUTING.md) before sending a pull request.
+
 ## License
 
 MIT
