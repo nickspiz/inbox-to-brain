@@ -95,10 +95,23 @@ And the validator report:
 ## Install as a Claude Code plugin
 
 ```text
-/plugin install inbox-to-brain --marketplace nickspiz/inbox-to-brain
+/plugin marketplace add nickspiz/inbox-to-brain
+/plugin install inbox-to-brain@inbox-to-brain
 ```
 
-This adds `/inbox-to-brain:inbox-route` and `/inbox-to-brain:validate-inbox`, and the scripts come with it. You still need an `inbox-to-brain.toml` in your vault root (see below).
+This adds `/inbox-to-brain:inbox-route` and `/inbox-to-brain:validate-inbox`, and the scripts come with it. You still need an `inbox-to-brain.toml` in your vault root (see below). Run the commands from your vault folder.
+
+### Example prompts
+
+- `/inbox-to-brain:validate-inbox` flags short, frontmatter-less and todo-only notes. Nothing moves.
+- `/inbox-to-brain:inbox-route` shows a dry run, then moves notes only after you say yes.
+- "Write a note about what we learned into the inbox." Needs the snippet from `CLAUDE-snippet.md` in your `CLAUDE.md`.
+
+### What it changes on disk
+
+- `inbox-route`: a dry run first, which changes nothing. Only after you agree does it run `router.py --apply`, which moves note files from `00_Inbox/` into `Projects/<slug>/decisions/`, `Projects/<slug>/knowledge/` or `Knowledge/<topic>/`, and appends a `- [[note-name]]` line under `## Decisions` or `## Knowledge` in `Projects/<slug>/<slug>.md` if that page exists. It never overwrites a note that is already at the destination and never deletes anything.
+- `validate-inbox`: runs `validator.py`, which writes one file, `00_Inbox/_NEEDS_REVIEW.md`. It moves and deletes nothing.
+- Both read the markdown files in your vault, the `inbox-to-brain.toml` or `.json` config, and the `INBOX_VAULT` environment variable. Both use Python's standard library only, make no network calls and send nothing anywhere.
 
 ## Use it in your own vault
 
@@ -106,7 +119,7 @@ This adds `/inbox-to-brain:inbox-route` and `/inbox-to-brain:validate-inbox`, an
 2. Copy `starter-vault/inbox-to-brain.toml` into the vault root and list your projects.
 3. Copy `starter-vault/_templates/` if you want note templates.
 4. Paste `CLAUDE-snippet.md` into your `CLAUDE.md` (or the equivalent file for your agent). It tells the agent to write a short note into the inbox after any non-trivial task.
-5. Copy `.claude/commands/` into your project so `/inbox-route` and `/validate-inbox` work in Claude Code.
+5. Optional, for Claude Code without the plugin: copy `commands/*.md` into your project's `.claude/commands/` and replace `${CLAUDE_PLUGIN_ROOT}/` with the folder that holds the scripts (or delete it if they sit in the vault root). Then `/inbox-route` and `/validate-inbox` work. The plugin uses the same files, so there is only one set of commands.
 
 ## How a note gets routed
 
@@ -181,8 +194,14 @@ It can, but the shipped commands do a dry run first and ask before moving anythi
 
 Have a question or an idea? Start a [discussion](https://github.com/nickspiz/inbox-to-brain/discussions). For bugs, open an [issue](https://github.com/nickspiz/inbox-to-brain/issues/new/choose). See [CONTRIBUTING.md](CONTRIBUTING.md) before sending a pull request.
 
+## Privacy
+
+Everything runs on your machine. The plugin's two commands run `router.py` and `validator.py` through the Bash tool. They read and write markdown files inside the vault folder you point them at, as described in "What it changes on disk". Notes may contain anything you wrote, and they are not sent to the author or any service. No network access, no telemetry.
+
+## Support
+
+Questions or bugs: [GitHub Issues](https://github.com/nickspiz/inbox-to-brain/issues) or hello@nickspiz.com.
+
 ## License
 
 MIT
-
-If this helped, a star helps others find it.
